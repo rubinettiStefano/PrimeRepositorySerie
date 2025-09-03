@@ -1,5 +1,6 @@
 package com.generation;
 
+import com.generation.bl.BusinessLogicProduct;
 import com.generation.entities.BaseEntity;
 import com.generation.entities.Product;
 import com.generation.repositories.RepositoryProductSqlite;
@@ -13,18 +14,9 @@ public class Executable
 	{
 		//crea la connessione il db
 		SqliteDatabase.initializeSinglenton("db.sqlite");
+		BusinessLogicProduct pbl = new BusinessLogicProduct();
 
-		RepositoryProductSqlite repo = new RepositoryProductSqlite();
-		Product p = new Product();
-		p.setProductName("Mozzarella di Bufala Campana DOP");
-		p.setCategory("Latticini");
-		p.setQuantityPerUnit("Confezione da 250g");
-		p.setUnitPrice(4.50);
-		p.setUnitsInStock(120);
-		p.setUnitsOnOrder(30);
-		p.setDiscontinued(false);
-
-		repo.update(p);
+		pbl.deleteProduct();
 
 	}
 }

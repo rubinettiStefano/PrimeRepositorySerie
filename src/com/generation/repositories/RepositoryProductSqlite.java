@@ -10,11 +10,13 @@ public class RepositoryProductSqlite
 {
 	//si fa passare la connessione verso db
 	private SqliteDatabase db = SqliteDatabase.getInstance();
+	//readById
 	//readAll
 	//readWhere
 	//create
 	//update
 	//delete
+	//deleteById
 
 	public ArrayList<Product> readAll()
 	{
@@ -44,15 +46,26 @@ public class RepositoryProductSqlite
 		return res;
 	}
 
+	public Product readById(Long id)
+	{
+
+		VirtualTable v = db.executeSelect("SELECT * FROM product WHERE id="+id);
+		if (v.hasRow())
+			return convertRowToObject(v);
+		else
+			return null;
+
+	}
+
 	public void create(Product p)
 	{
 		String query = "INSERT INTO product (product_name, category, quantity_per_unit, unit_price, units_in_stock, units_on_order, discontinued) " +
 				"VALUES ('[productName]','[category]','[qntUnit]',[unitPrice],[unitsStock],[unitsOrder],[discontinued])";
 
 		query = query
-				.replace("[productName]",p.getProductName())
-				.replace("[category]",p.getCategory())
-				.replace("[qntUnit]",p.getQuantityPerUnit())
+				.replace("[productName]",p.getProductName()+"")
+				.replace("[category]",p.getCategory()+"")
+				.replace("[qntUnit]",p.getQuantityPerUnit()+"")
 				.replace("[unitPrice]",p.getUnitPrice()+"")
 				.replace("[unitsStock]",p.getUnitsInStock()+"")
 				.replace("[unitsOrder]",p.getUnitsOnOrder()+"")
@@ -80,7 +93,12 @@ public class RepositoryProductSqlite
 
 	public void delete(Product p)
 	{
-		String query = "DELETE FROM product WHERE id="+p.getId();
+		deleteById(p.getId());
+	}
+
+	public void deleteById(Long id)
+	{
+		String query = "DELETE FROM product WHERE id="+id;
 
 		db.executeOthers(query);
 	}
