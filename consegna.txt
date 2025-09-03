@@ -1,0 +1,22 @@
+Customer (aziende acquirenti)
+- id
+- name
+- address
+- nEmployees (numero impiegati)
+- revenue (fatturato)
+- language (lingua per le comunicazioni)
+- mail
+- sector
+
+1) Creare sul db tabella
+2) Creare entità su Java
+3) Creare repository
+4) Creare BusinessLogic con dentro:
+    - metodo creazione nuovo customer
+    - metodo modifica
+    - metodo cancellazione
+    - stampa completa
+    - stampa per fatturato compreso tra 2 chiesti utente
+5) Aggiunta comandi in executable
+
+
