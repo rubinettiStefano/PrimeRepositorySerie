@@ -1,6 +1,6 @@
-package com.generation.repositories;
+package com.generation.model.repositories;
 
-import com.generation.entities.Product;
+import com.generation.model.entities.Product;
 import database.SqliteDatabase;
 import database.VirtualTable;
 

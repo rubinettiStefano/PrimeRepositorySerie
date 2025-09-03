@@ -1,7 +1,9 @@
-package com.generation.entities;
+package com.generation.model.entities;
 
 public class Product extends BaseEntity
 {
+
+
 	private String productName;
 	private String category;
 	private String quantityPerUnit;

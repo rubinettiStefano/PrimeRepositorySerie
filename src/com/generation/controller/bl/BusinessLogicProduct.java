@@ -1,7 +1,7 @@
-package com.generation.bl;
+package com.generation.controller.bl;
 
-import com.generation.entities.Product;
-import com.generation.repositories.RepositoryProductSqlite;
+import com.generation.model.entities.Product;
+import com.generation.model.repositories.RepositoryProductSqlite;
 
 import java.util.ArrayList;
 import java.util.Scanner;
